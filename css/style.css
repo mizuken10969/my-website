@@ -1,95 +1,158 @@
-/* ===== サイト全体 ===== */
+/* ================================
+   全体の基本設定
+================================ */
 body {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-  background: #fdfdfd;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: #fff8f5; /* 柔らかい背景色 */
   color: #333;
+  line-height: 1.6;
 }
 
-/* ===== ヘッダー ===== */
+/* 見出し全般をちょっと可愛く */
+h1, h2, h3 {
+  font-family: "Comic Sans MS", "Hiragino Maru Gothic ProN", cursive;
+  color: #444;
+  margin: 0.5em 0;
+}
+
+/* ================================
+   ヘッダー・ナビゲーション
+================================ */
 header {
-  background: #222;
+  background: #ff9999;
   color: #fff;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky; /* スクロールしても追従 */
+  position: sticky; /* スクロールしても上に固定 */
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-header nav a {
+header h1 {
+  font-size: 1.5rem;
+}
+
+nav a {
   margin-left: 1rem;
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
 }
 
-header nav a:hover {
+nav a:hover {
   text-decoration: underline;
 }
 
-/* ===== ヒーローエリア ===== */
+/* ================================
+   ヒーローエリア（トップ紹介）
+================================ */
 .hero {
   text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #00aaff, #00ffaa);
-  color: #fff;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #ffcccc, #ffe6e6);
   border-radius: 12px;
   margin: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.hero button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: #fff;
-  color: #00aaff;
-  cursor: pointer;
+.hero img {
+  border-radius: 12px;
+  margin: 1rem 0;
 }
 
-.hero button:hover {
-  background: #eee;
-}
-
-/* ===== 情報セクション ===== */
-.info {
-  padding: 3rem 2rem;
-  background: #f0f8ff;
-  margin: 2rem;
-  border-radius: 10px;
-}
-
-/* ===== 動きのサンプル ===== */
-.playground {
-  padding: 2rem;
-  margin: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-/* フェードインの初期状態 */
-.fadein {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-
-/* 表示されたとき */
-.fadein.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 画像のアニメーション */
-#thumbnail {
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  display: block;
+.btn {
+  display: inline-block;
   margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: #ff6666;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
-#thumbnail.big {
-  transform: scale(1.5);
+.btn:hover {
+  background: #e05555;
+}
+
+/* ================================
+   記事一覧（blog.html）
+================================ */
+.post-summary {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+}
+
+.post-summary h3 {
+  margin: 0;
+}
+
+.post-summary .date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ================================
+   記事本文（post1.html など）
+================================ */
+article {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+article img {
+  border-radius: 8px;
+  margin: 1rem 0;
+  max-width: 100%;
+}
+
+/* 日付表示 */
+.date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+/* ================================
+   フッター
+================================ */
+footer {
+  background: #ff9999;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* ================================
+   レスポンシブ対応（スマホ向け）
+================================ */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 0 0.5rem 0.5rem 0;
+    display: inline-block;
+  }
+
+  .hero {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  article {
+    margin: 1rem;
+  }
 }
